@@ -1,0 +1,34 @@
+name: Metrics
+on:
+  schedule:
+    - cron: "0 10 * * 1,4"   # twice a week
+  workflow_dispatch: {}
+
+jobs:
+  github-metrics:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          user: eduair94
+          template: classic
+          filename: metrics.svg
+          base: header, repositories, metadata
+          config_timezone: America/Montevideo
+          token: ${{ secrets.METRICS_TOKEN }}
+
+          # Plugins (safe, useful defaults)
+          plugin_achievements: yes
+          plugin_achievements_threshold: C
+          plugin_achievements_secrets: yes
+
+          plugin_languages: yes
+          plugin_languages_indepth: yes
+          plugin_languages_limit: 8
+          plugin_languages_ignored: html, css
+
+          plugin_stars: yes
+          plugin_topics: yes
+          plugin_topics_limit: 12
