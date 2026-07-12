@@ -15,6 +15,31 @@
 
 ---
 
+### `GET /services`
+
+**OSINT tools I run in production.** Free to use, no login for the basics, developer APIs behind them.
+
+<!-- SERVICES:start -->
+<p align="center">
+  <a href="https://checkleaked.cc">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./assets/service-1-dark.svg" />
+      <img alt="CheckLeaked — Breach search across billions of records" src="./assets/service-1-light.svg" width="412" />
+    </picture>
+  </a>
+  <a href="https://whatsapp.checkleaked.cc">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./assets/service-2-dark.svg" />
+      <img alt="WhatsApp OSINT — Profile picture &amp; number lookup, no login" src="./assets/service-2-light.svg" width="412" />
+    </picture>
+  </a>
+</p>
+<!-- SERVICES:end -->
+
+<p align="center"><sub>Status and latency above are real — measured against each service when these cards were last rendered.</sub></p>
+
+---
+
 ### `GET /stack`
 
 I build the unglamorous middle of the internet: the scraper that survives the anti-bot check, the queue that drains without supervision, the API that answers in 40ms.

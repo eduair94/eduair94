@@ -8,15 +8,19 @@
     .str { fill: #1F6E3C; }
     .acc { fill: #B45309; }
     @keyframes blink { 0%, 49% { opacity: 1 } 50%, 100% { opacity: 0 } }
+    @keyframes pulse { 0%, 100% { opacity: 1 } 50% { opacity: 0.25 } }
     .caret { animation: blink 1.06s step-end infinite; }
-    @media (prefers-reduced-motion: reduce) { .caret { animation: none } }
+    .pulse { animation: pulse 2s ease-in-out infinite; }
+    @media (prefers-reduced-motion: reduce) { .caret, .pulse { animation: none } }
   </style>
   <rect x="0.5" y="0.5" width="411" height="213" rx="7" fill="#FFFFFF" stroke="#D7DFE5"/>
   <path d="M0.5 7.5a7 7 0 0 1 7-7h397a7 7 0 0 1 7 7v23H0.5z" fill="#F2F5F7"/>
+  
   <line x1="0.5" y1="30.5" x2="411.5" y2="30.5" stroke="#D7DFE5"/>
   <text class="m" x="12" y="20" font-size="11" letter-spacing="0.4">
     <tspan class="acc" font-weight="700">GET</tspan><tspan class="dim" dx="6">/api/stats</tspan>
   </text>
+  
   <rect x="336" y="8" width="64" height="15" rx="7.5" fill="#E4F4EA"/>
   <text class="m" x="368" y="19" font-size="10" font-weight="700" fill="#12703F" text-anchor="middle">200 OK</text>
   <text class="m dim" x="326" y="20" font-size="10" text-anchor="end">41ms</text>

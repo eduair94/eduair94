@@ -13,6 +13,23 @@ import { fileURLToPath } from "node:url";
 const USER = "eduair94";
 const NAME = "Eduardo Airaudo";
 
+// Live OSINT services. Each card is probed at render time and prints the status and
+// latency it actually measured, rather than a badge asserting uptime nobody checked.
+const SERVICES = [
+  {
+    url: "https://checkleaked.cc",
+    name: "CheckLeaked",
+    tagline: "Breach search across billions of records",
+    tags: ["osint", "breach-data", "api"],
+  },
+  {
+    url: "https://whatsapp.checkleaked.cc",
+    name: "WhatsApp OSINT",
+    tagline: "Profile picture & number lookup, no login",
+    tags: ["osint", "whatsapp", "free"],
+  },
+];
+
 // Featured repos are the top-starred ones, picked at render time — no hand-maintained list.
 const FEATURED_COUNT = 4;
 
@@ -122,6 +139,25 @@ async function gh(path) {
   return res.json();
 }
 
+/**
+ * Probes a service and reports what it actually returned. A card must never claim a
+ * status it did not observe, so a failed or slow probe drops the pill entirely rather
+ * than defaulting to 200.
+ */
+async function probe(url) {
+  const started = Date.now();
+  try {
+    const res = await fetch(url, {
+      headers: { "user-agent": "Mozilla/5.0 (compatible; eduair94-profile-cards)" },
+      signal: AbortSignal.timeout(15_000),
+    });
+    const ms = Date.now() - started;
+    return res.ok ? { status: `${res.status} OK`, meta: `${ms}ms` } : { status: null, meta: "" };
+  } catch {
+    return { status: null, meta: "" };
+  }
+}
+
 async function collect() {
   const user = await gh(`/users/${USER}`);
 
@@ -170,8 +206,13 @@ async function collect() {
     .slice(0, FEATURED_COUNT)
     .map((r) => ({ ...r, description: r.description || BLURBS[r.name] || "" }));
 
+  const services = await Promise.all(
+    SERVICES.map(async (svc) => ({ ...svc, ...(await probe(svc.url)) })),
+  );
+
   return {
     user,
+    services,
     stats: {
       repos: own.length,
       stars,
@@ -196,25 +237,34 @@ const style = (t) => `
     .str { fill: ${t.string}; }
     .acc { fill: ${t.amber}; }
     @keyframes blink { 0%, 49% { opacity: 1 } 50%, 100% { opacity: 0 } }
+    @keyframes pulse { 0%, 100% { opacity: 1 } 50% { opacity: 0.25 } }
     .caret { animation: blink 1.06s step-end infinite; }
-    @media (prefers-reduced-motion: reduce) { .caret { animation: none } }
+    .pulse { animation: pulse 2s ease-in-out infinite; }
+    @media (prefers-reduced-motion: reduce) { .caret, .pulse { animation: none } }
   </style>`;
 
 /** Window chrome: request line on the left, status pill on the right. */
-function frame(t, { w, h, method = "GET", path, status = "200 OK", meta = "" }) {
+function frame(t, { w, h, method = "GET", path, status = "200 OK", meta = "", accent }) {
   const barH = 30;
-  const pillW = 8 * status.length + 16;
-  const pillX = w - 12 - pillW;
-  const metaX = pillX - 10;
+  const pill = status
+    ? (() => {
+        const pw = 8 * status.length + 16;
+        const px = w - 12 - pw;
+        return `
+  <rect x="${px}" y="8" width="${pw}" height="15" rx="7.5" fill="${t.okBg}"/>
+  <text class="m" x="${px + pw / 2}" y="19" font-size="10" font-weight="700" fill="${t.ok}" text-anchor="middle">${esc(status)}</text>`;
+      })()
+    : "";
+  const metaX = w - 12 - (status ? 8 * status.length + 26 : 0);
   return `
   <rect x="0.5" y="0.5" width="${w - 1}" height="${h - 1}" rx="7" fill="${t.surface}" stroke="${t.border}"/>
   <path d="M0.5 7.5a7 7 0 0 1 7-7h${w - 15}a7 7 0 0 1 7 7v${barH - 7}H0.5z" fill="${t.chrome}"/>
+  ${accent ? `<rect x="0.5" y="${barH}" width="3" height="${h - barH - 1}" fill="${accent}"/>` : ""}
   <line x1="0.5" y1="${barH}.5" x2="${w - 0.5}" y2="${barH}.5" stroke="${t.border}"/>
   <text class="m" x="12" y="20" font-size="11" letter-spacing="0.4">
     <tspan class="acc" font-weight="700">${method}</tspan><tspan class="dim" dx="6">${esc(path)}</tspan>
   </text>
-  <rect x="${pillX}" y="8" width="${pillW}" height="15" rx="7.5" fill="${t.okBg}"/>
-  <text class="m" x="${pillX + pillW / 2}" y="19" font-size="10" font-weight="700" fill="${t.ok}" text-anchor="middle">${esc(status)}</text>
+  ${pill}
   ${meta ? `<text class="m dim" x="${metaX}" y="20" font-size="10" text-anchor="end">${esc(meta)}</text>` : ""}`;
 }
 
@@ -344,6 +394,39 @@ function langsCard(t, { languages }) {
 const icon = (t, path, x, y, size = 12) =>
   `<path d="${path}" fill="${t.dim}" transform="translate(${x} ${y}) scale(${size / 16})"/>`;
 
+/**
+ * The services are the thing worth seeing first, so these cards carry the accent rail
+ * and the live pulse — the repo cards below stay quiet by comparison.
+ */
+function serviceCard(t, svc) {
+  const w = 412;
+  const h = 152;
+  const x = 20;
+  const host = svc.url.replace(/^https?:\/\//, "");
+  const live = Boolean(svc.status);
+
+  const tags = svc.tags
+    .map((tag, i) => {
+      const tw = 7.1 * tag.length + 14;
+      const tx = x + svc.tags.slice(0, i).reduce((n, p) => n + 7.1 * p.length + 14 + 6, 0);
+      return `
+    <rect x="${tx}" y="${h - 34}" width="${tw.toFixed(1)}" height="19" rx="4" fill="${t.chrome}" stroke="${t.border}"/>
+    <text class="m dim" x="${(tx + tw / 2).toFixed(1)}" y="${h - 21}" font-size="10.5" text-anchor="middle">${esc(tag)}</text>`;
+    })
+    .join("");
+
+  return doc(
+    t,
+    w,
+    h,
+    `${frame(t, { w, h, path: host, status: svc.status, meta: svc.meta, accent: t.amber })}
+    <text class="m acc" x="${x}" y="60" font-size="17" font-weight="700">${esc(svc.name)}</text>
+    ${live ? `<circle class="pulse" cx="${x + 8.9 * svc.name.length + 14}" cy="55" r="4" fill="${t.ok}"/>` : ""}
+    <text class="m txt" x="${x}" y="84" font-size="12">${esc(clip(svc.tagline, 46))}</text>
+    ${tags}`,
+  );
+}
+
 function repoCard(t, repo) {
   const w = 412;
   const h = 132;
@@ -375,29 +458,33 @@ function repoCard(t, repo) {
  * the script owns that block rather than leaving a hand-written link pointing at the
  * wrong card.
  */
-async function patchReadme(featured) {
+async function patchReadme({ featured, services }) {
   const path = join(OUT, "..", "README.md");
   const md = await readFile(path, "utf8");
 
-  const cards = featured
-    .map(
-      (repo, i) => `  <a href="${repo.html_url}">
+  const linked = (href, name, alt, width) => `  <a href="${href}">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="./assets/repo-${i + 1}-dark.svg" />
-      <img alt="${esc(repo.name)} — ${esc(repo.description || "repository")}" src="./assets/repo-${i + 1}-light.svg" width="412" />
+      <source media="(prefers-color-scheme: dark)" srcset="./assets/${name}-dark.svg" />
+      <img alt="${esc(alt)}" src="./assets/${name}-light.svg" width="${width}" />
     </picture>
-  </a>`,
+  </a>`;
+
+  const serviceCards = services
+    .map((svc, i) => linked(svc.url, `service-${i + 1}`, `${svc.name} — ${svc.tagline}`, 412))
+    .join("\n");
+
+  const repoCards = featured
+    .map((repo, i) =>
+      linked(repo.html_url, `repo-${i + 1}`, `${repo.name} — ${repo.description || "repository"}`, 412),
     )
     .join("\n");
 
-  const block = (marker, body) =>
-    new RegExp(`(<!-- ${marker}:start -->)[\\s\\S]*?(<!-- ${marker}:end -->)`).exec(md) &&
-    md.replace(
-      new RegExp(`(<!-- ${marker}:start -->)[\\s\\S]*?(<!-- ${marker}:end -->)`),
-      `$1\n${body}\n$2`,
-    );
+  const rx = (marker) => new RegExp(`(<!-- ${marker}:start -->)[\\s\\S]*?(<!-- ${marker}:end -->)`);
+  const block = (src, marker, body) =>
+    rx(marker).test(src) ? src.replace(rx(marker), `$1\n${body}\n$2`) : src;
 
-  let next = block("PROJECTS", `<p align="center">\n${cards}\n</p>`) || md;
+  let next = block(md, "PROJECTS", `<p align="center">\n${repoCards}\n</p>`);
+  next = block(next, "SERVICES", `<p align="center">\n${serviceCards}\n</p>`);
   next = next.replace(
     /(<!-- LAST_UPDATED -->)[\s\S]*?(<!-- \/LAST_UPDATED -->)/,
     `$1${new Date().toISOString().slice(0, 10)}$2`,
@@ -416,6 +503,7 @@ const cards = [
   ["banner", banner],
   ["stats", statsCard],
   ["langs", langsCard],
+  ...data.services.map((svc, i) => [`service-${i + 1}`, (t) => serviceCard(t, svc)]),
   ...data.featured.map((repo, i) => [`repo-${i + 1}`, (t) => repoCard(t, repo)]),
 ];
 
@@ -425,10 +513,11 @@ for (const [name, render] of cards) {
   }
 }
 
-await patchReadme(data.featured);
+await patchReadme(data);
 
 console.log(
   `${cards.length * 2} SVGs · ${data.stats.repos} repos · ${data.stats.stars} stars · ` +
     `${data.languages.length} languages (${TOKEN ? "byte-accurate" : "size-weighted"})\n` +
+    `services: ${data.services.map((s) => `${s.name} [${s.status || "unreachable"} ${s.meta}]`).join(", ")}\n` +
     `featured: ${data.featured.map((r) => `${r.name} (${r.stargazers_count}★)`).join(", ")}`,
 );
