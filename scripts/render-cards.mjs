@@ -224,10 +224,10 @@ const doc = (t, w, h, body) =>
 /* ---------- Cards ---------- */
 
 function banner(t) {
-  const w = 880;
+  const w = 840;
   const h = 196;
   const x = 26;
-  const col2 = 470;
+  const col2 = 448;
   const headers = [
     ["x-role", "scrapers · bots · data-driven APIs", x],
     ["x-stack", "TypeScript · Cloudflare · Python · Go", col2],
@@ -257,7 +257,7 @@ function banner(t) {
 }
 
 function statsCard(t, { stats }) {
-  const w = 434;
+  const w = 412;
   const h = 214;
   const x = 18;
   const gut = 30;
@@ -295,7 +295,7 @@ function statsCard(t, { stats }) {
 }
 
 function langsCard(t, { languages }) {
-  const w = 434;
+  const w = 412;
   const h = 214;
   const x = 18;
   const barW = w - x * 2;
@@ -345,7 +345,7 @@ const icon = (t, path, x, y, size = 12) =>
   `<path d="${path}" fill="${t.dim}" transform="translate(${x} ${y}) scale(${size / 16})"/>`;
 
 function repoCard(t, repo) {
-  const w = 434;
+  const w = 412;
   const h = 132;
   const x = 18;
   const y = h - 22;
@@ -384,7 +384,7 @@ async function patchReadme(featured) {
       (repo, i) => `  <a href="${repo.html_url}">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="./assets/repo-${i + 1}-dark.svg" />
-      <img alt="${esc(repo.name)} — ${esc(repo.description || "repository")}" src="./assets/repo-${i + 1}-light.svg" width="434" />
+      <img alt="${esc(repo.name)} — ${esc(repo.description || "repository")}" src="./assets/repo-${i + 1}-light.svg" width="412" />
     </picture>
   </a>`,
     )

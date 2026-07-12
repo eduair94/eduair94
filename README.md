@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg" />
-    <img alt="Eduardo Airaudo — scrapers, bots and data-driven APIs. Montevideo, Uruguay." src="./assets/banner-light.svg" width="880" />
+    <img alt="Eduardo Airaudo — scrapers, bots and data-driven APIs. Montevideo, Uruguay." src="./assets/banner-light.svg" width="840" />
   </picture>
 </p>
 
@@ -47,25 +47,25 @@ I build the unglamorous middle of the internet: the scraper that survives the an
   <a href="https://github.com/eduair94/whatsapp-scrapping-tool">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="./assets/repo-1-dark.svg" />
-      <img alt="whatsapp-scrapping-tool — Bulk WhatsApp number verification, as a desktop app" src="./assets/repo-1-light.svg" width="434" />
+      <img alt="whatsapp-scrapping-tool — Bulk WhatsApp number verification, as a desktop app" src="./assets/repo-1-light.svg" width="412" />
     </picture>
   </a>
   <a href="https://github.com/eduair94/ci-validation">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="./assets/repo-2-dark.svg" />
-      <img alt="ci-validation — Uruguayan national ID validation API" src="./assets/repo-2-light.svg" width="434" />
+      <img alt="ci-validation — Uruguayan national ID validation API" src="./assets/repo-2-light.svg" width="412" />
     </picture>
   </a>
   <a href="https://github.com/eduair94/cambio-uruguay">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="./assets/repo-3-dark.svg" />
-      <img alt="cambio-uruguay — Source code of https://cambio-uruguay.com" src="./assets/repo-3-light.svg" width="434" />
+      <img alt="cambio-uruguay — Source code of https://cambio-uruguay.com" src="./assets/repo-3-light.svg" width="412" />
     </picture>
   </a>
   <a href="https://github.com/eduair94/no-llamar-uy">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="./assets/repo-4-dark.svg" />
-      <img alt="no-llamar-uy — Do-not-call registry lookup for Uruguay" src="./assets/repo-4-light.svg" width="434" />
+      <img alt="no-llamar-uy — Do-not-call registry lookup for Uruguay" src="./assets/repo-4-light.svg" width="412" />
     </picture>
   </a>
 </p>
@@ -80,11 +80,11 @@ I build the unglamorous middle of the internet: the scraper that survives the an
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./assets/stats-dark.svg" />
-    <img alt="Profile statistics" src="./assets/stats-light.svg" width="434" />
+    <img alt="Profile statistics" src="./assets/stats-light.svg" width="412" />
   </picture>
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./assets/langs-dark.svg" />
-    <img alt="Language distribution" src="./assets/langs-light.svg" width="434" />
+    <img alt="Language distribution" src="./assets/langs-light.svg" width="412" />
   </picture>
 </p>
 
