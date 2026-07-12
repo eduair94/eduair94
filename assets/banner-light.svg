@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="196" viewBox="0 0 880 196" role="img">
+  <style>
+    .m { font-family: ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"DejaVu Sans Mono",monospace; }
+    .dim { fill: #61798A; }
+    .txt { fill: #16232D; }
+    .key { fill: #0B6E88; }
+    .num { fill: #B45309; }
+    .str { fill: #1F6E3C; }
+    .acc { fill: #B45309; }
+    @keyframes blink { 0%, 49% { opacity: 1 } 50%, 100% { opacity: 0 } }
+    .caret { animation: blink 1.06s step-end infinite; }
+    @media (prefers-reduced-motion: reduce) { .caret { animation: none } }
+  </style>
+  <rect x="0.5" y="0.5" width="879" height="195" rx="7" fill="#FFFFFF" stroke="#D7DFE5"/>
+  <path d="M0.5 7.5a7 7 0 0 1 7-7h865a7 7 0 0 1 7 7v23H0.5z" fill="#F2F5F7"/>
+  <line x1="0.5" y1="30.5" x2="879.5" y2="30.5" stroke="#D7DFE5"/>
+  <text class="m" x="12" y="20" font-size="11" letter-spacing="0.4">
+    <tspan class="acc" font-weight="700">GET</tspan><tspan class="dim" dx="6">/eduair94</tspan>
+  </text>
+  <rect x="804" y="8" width="64" height="15" rx="7.5" fill="#E4F4EA"/>
+  <text class="m" x="836" y="19" font-size="10" font-weight="700" fill="#12703F" text-anchor="middle">200 OK</text>
+  <text class="m dim" x="794" y="20" font-size="10" text-anchor="end">HTTP/2 · 12ms</text>
+    <text class="m dim" x="26" y="64" font-size="12">$ curl -sS https://api.github.com/users/eduair94</text>
+    <text class="m" x="26" y="99" font-size="29" font-weight="700" letter-spacing="-0.5">
+      <tspan class="acc">Eduardo Airaudo</tspan><tspan class="acc caret" dx="4">▌</tspan>
+    </text>
+    
+    <text class="m" x="26" y="138" font-size="12.5">
+      <tspan class="key">x-role:</tspan><tspan class="txt" x="118">scrapers · bots · data-driven APIs</tspan>
+    </text>
+    <text class="m" x="470" y="138" font-size="12.5">
+      <tspan class="key">x-stack:</tspan><tspan class="txt" x="562">TypeScript · Cloudflare · Python · Go</tspan>
+    </text>
+    <text class="m" x="26" y="159" font-size="12.5">
+      <tspan class="key">x-location:</tspan><tspan class="txt" x="118">Montevideo, Uruguay</tspan>
+    </text>
+    <text class="m" x="470" y="159" font-size="12.5">
+      <tspan class="key">x-building:</tspan><tspan class="txt" x="562">shellix.xyz · checkleaked.cc</tspan>
+    </text></svg>

@@ -1,0 +1,43 @@
+name: Profile cards
+
+on:
+  schedule:
+    - cron: "17 5 * * *" # daily
+  push:
+    branches: [master]
+    paths:
+      - scripts/render-cards.mjs
+      - .github/workflows/cards.yml
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-cards
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Render SVG cards
+        env:
+          # A PAT is not required; GITHUB_TOKEN's rate limit is enough for byte-accurate languages.
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/render-cards.mjs
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets README.md
+          git diff --staged --quiet && echo "no changes" && exit 0
+          git commit -m "Update profile cards [skip ci]"
+          git push
