@@ -6,8 +6,8 @@
 </p>
 
 <p align="center">
-  <a href="https://shellix.xyz"><img alt="Website: shellix.xyz" src="https://img.shields.io/badge/shellix.xyz-F0A02B?style=flat-square&logo=cloudflare&logoColor=0F161D&labelColor=0F161D&color=F0A02B" /></a>
-  <a href="https://checkleaked.cc"><img alt="CheckLeaked" src="https://img.shields.io/badge/checkleaked.cc-4FC3D9?style=flat-square&logo=shield&logoColor=0F161D&labelColor=0F161D&color=4FC3D9" /></a>
+  <a href="https://shellix.xyz"><img alt="Website: shellix.xyz" src="https://img.shields.io/badge/shellix.xyz-F0A02B?style=flat-square&logo=cloudflare&logoColor=F0A02B&labelColor=0F161D&color=F0A02B" /></a>
+  <a href="https://checkleaked.cc"><img alt="CheckLeaked" src="https://img.shields.io/badge/checkleaked.cc-4FC3D9?style=flat-square&logo=shield&logoColor=4FC3D9&labelColor=0F161D&color=4FC3D9" /></a>
   <a href="https://github.com/eduair94?tab=followers"><img alt="Followers" src="https://img.shields.io/github/followers/eduair94?style=flat-square&label=followers&labelColor=0F161D&color=5C7080" /></a>
   <a href="https://github.com/eduair94?tab=repositories&type=source&sort=stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/eduair94?affiliations=OWNER&style=flat-square&label=stars&labelColor=0F161D&color=5C7080" /></a>
   <img alt="Profile views" src="https://komarev.com/ghpvc/?username=eduair94&style=flat-square&label=views&color=5C7080" />
@@ -109,8 +109,8 @@ I build the unglamorous middle of the internet: the scraper that survives the an
 Open to consulting on scraping, automation and API work — or just a good bug report.
 
 <p align="center">
-  <a href="mailto:iny@eduardo-airau.do"><img alt="Email" src="https://img.shields.io/badge/email-iny%40eduardo--airau.do-F0A02B?style=flat-square&logo=maildotru&logoColor=0F161D&labelColor=0F161D&color=F0A02B" /></a>
-  <a href="https://shellix.xyz"><img alt="Website" src="https://img.shields.io/badge/web-shellix.xyz-4FC3D9?style=flat-square&logo=googlechrome&logoColor=0F161D&labelColor=0F161D&color=4FC3D9" /></a>
+  <a href="mailto:iny@eduardo-airau.do"><img alt="Email" src="https://img.shields.io/badge/email-iny%40eduardo--airau.do-F0A02B?style=flat-square&logo=maildotru&logoColor=F0A02B&labelColor=0F161D&color=F0A02B" /></a>
+  <a href="https://shellix.xyz"><img alt="Website" src="https://img.shields.io/badge/web-shellix.xyz-4FC3D9?style=flat-square&logo=googlechrome&logoColor=4FC3D9&labelColor=0F161D&color=4FC3D9" /></a>
   <a href="https://github.com/eduair94?tab=repositories"><img alt="Repositories" src="https://img.shields.io/badge/code-github-C6D2DC?style=flat-square&logo=github&logoColor=C6D2DC&labelColor=0F161D&color=5C7080" /></a>
 </p>
 
