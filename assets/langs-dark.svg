@@ -24,18 +24,18 @@
   <rect x="336" y="8" width="64" height="15" rx="7.5" fill="#12281D"/>
   <text class="m" x="368" y="19" font-size="10" font-weight="700" fill="#4FD68A" text-anchor="middle">200 OK</text>
   <text class="m dim" x="326" y="20" font-size="10" text-anchor="end">content-type</text>
-    <rect x="18.0" y="52" width="332.1" height="9" rx="2" fill="#3178C6"/><rect x="351.6" y="52" width="31.0" height="9" rx="2" fill="#F1E05A"/><rect x="384.0" y="52" width="3.8" height="9" rx="2" fill="#3572A5"/><rect x="389.3" y="52" width="1.6" height="9" rx="2" fill="#89E051"/><rect x="392.4" y="52" width="1.0" height="9" rx="2" fill="#178600"/>
+    <rect x="18.0" y="52" width="333.3" height="9" rx="2" fill="#3178C6"/><rect x="352.8" y="52" width="30.0" height="9" rx="2" fill="#F1E05A"/><rect x="384.3" y="52" width="3.6" height="9" rx="2" fill="#3572A5"/><rect x="389.5" y="52" width="1.5" height="9" rx="2" fill="#89E051"/><rect x="392.4" y="52" width="1.0" height="9" rx="2" fill="#178600"/>
     
     <circle cx="22" cy="88.2" r="4.5" fill="#3178C6"/>
     <text class="m txt" x="35" y="92.2" font-size="12.5">TypeScript</text>
     <rect x="236" y="84.2" width="96" height="6" rx="3" fill="#1B2731"/>
-    <rect x="236" y="84.2" width="85.2" height="6" rx="3" fill="#3178C6"/>
-    <text class="m num" x="394" y="92.2" font-size="12" text-anchor="end">88.7%</text>
+    <rect x="236" y="84.2" width="85.5" height="6" rx="3" fill="#3178C6"/>
+    <text class="m num" x="394" y="92.2" font-size="12" text-anchor="end">89.0%</text>
     <circle cx="22" cy="112.6" r="4.5" fill="#F1E05A"/>
     <text class="m txt" x="35" y="116.6" font-size="12.5">JavaScript</text>
     <rect x="236" y="108.6" width="96" height="6" rx="3" fill="#1B2731"/>
-    <rect x="236" y="108.6" width="8.3" height="6" rx="3" fill="#F1E05A"/>
-    <text class="m num" x="394" y="116.6" font-size="12" text-anchor="end">8.6%</text>
+    <rect x="236" y="108.6" width="8.1" height="6" rx="3" fill="#F1E05A"/>
+    <text class="m num" x="394" y="116.6" font-size="12" text-anchor="end">8.4%</text>
     <circle cx="22" cy="137" r="4.5" fill="#3572A5"/>
     <text class="m txt" x="35" y="141" font-size="12.5">Python</text>
     <rect x="236" y="133" width="96" height="6" rx="3" fill="#1B2731"/>
