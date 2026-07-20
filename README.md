@@ -100,6 +100,37 @@ I build the unglamorous middle of the internet: the scraper that survives the an
 
 ---
 
+### `GET /sites`
+
+**Other things I've shipped.** Open source, no ads, no login walls.
+
+<!-- WEBSITES:start -->
+<p align="center">
+  <a href="https://cambio-uruguay.com">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./assets/site-1-dark.svg" />
+      <img alt="Cambio Uruguay — Best FX rates &amp; exchange houses in Uruguay" src="./assets/site-1-light.svg" width="412" />
+    </picture>
+  </a>
+  <a href="https://conlatuya.checkleaked.cc">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./assets/site-2-dark.svg" />
+      <img alt="ConLaTuya — Gov spending monitor, tender alerts (UY)" src="./assets/site-2-light.svg" width="412" />
+    </picture>
+  </a>
+  <a href="https://warframe-app.digitalshopuy.com">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./assets/site-3-dark.svg" />
+      <img alt="Warframe Market App — Warframe market analysis, guides &amp; tools" src="./assets/site-3-light.svg" width="412" />
+    </picture>
+  </a>
+</p>
+<!-- WEBSITES:end -->
+
+<p align="center"><sub>Status and latency above are real — measured against each site when these cards were last rendered.</sub></p>
+
+---
+
 ### `GET /stats`
 
 <p align="center">

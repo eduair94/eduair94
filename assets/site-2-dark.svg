@@ -18,19 +18,19 @@
   <rect x="0.5" y="30" width="3" height="121" fill="#F0A02B"/>
   <line x1="0.5" y1="30.5" x2="411.5" y2="30.5" stroke="#22303C"/>
   <text class="m" x="12" y="20" font-size="11" letter-spacing="0.4">
-    <tspan class="acc" font-weight="700">GET</tspan><tspan class="dim" dx="6">checkleaked.cc</tspan>
+    <tspan class="acc" font-weight="700">GET</tspan><tspan class="dim" dx="6">conlatuya.checkleaked.cc</tspan>
   </text>
   
   <rect x="336" y="8" width="64" height="15" rx="7.5" fill="#12281D"/>
   <text class="m" x="368" y="19" font-size="10" font-weight="700" fill="#4FD68A" text-anchor="middle">200 OK</text>
-  <text class="m dim" x="326" y="20" font-size="10" text-anchor="end">440ms</text>
-    <text class="m acc" x="20" y="60" font-size="17" font-weight="700">CheckLeaked</text>
-    <circle class="pulse" cx="131.9" cy="55" r="4" fill="#4FD68A"/>
-    <text class="m txt" x="20" y="84" font-size="12">Breach search across billions of records</text>
+  <text class="m dim" x="326" y="20" font-size="10" text-anchor="end">1260ms</text>
+    <text class="m acc" x="20" y="60" font-size="17" font-weight="700">ConLaTuya</text>
+    <circle class="pulse" cx="114.10000000000001" cy="55" r="4" fill="#4FD68A"/>
+    <text class="m txt" x="20" y="84" font-size="12">Gov spending monitor, tender alerts (UY)</text>
     
-    <rect x="20" y="118" width="49.5" height="19" rx="4" fill="#141E28" stroke="#22303C"/>
-    <text class="m dim" x="44.8" y="131" font-size="10.5" text-anchor="middle">osint</text>
-    <rect x="75.5" y="118" width="92.1" height="19" rx="4" fill="#141E28" stroke="#22303C"/>
-    <text class="m dim" x="121.5" y="131" font-size="10.5" text-anchor="middle">breach-data</text>
-    <rect x="173.6" y="118" width="35.3" height="19" rx="4" fill="#141E28" stroke="#22303C"/>
-    <text class="m dim" x="191.3" y="131" font-size="10.5" text-anchor="middle">api</text></svg>
+    <rect x="20" y="118" width="99.2" height="19" rx="4" fill="#141E28" stroke="#22303C"/>
+    <text class="m dim" x="69.6" y="131" font-size="10.5" text-anchor="middle">gov-spending</text>
+    <rect x="125.19999999999999" y="118" width="92.1" height="19" rx="4" fill="#141E28" stroke="#22303C"/>
+    <text class="m dim" x="171.3" y="131" font-size="10.5" text-anchor="middle">procurement</text>
+    <rect x="223.29999999999998" y="118" width="63.7" height="19" rx="4" fill="#141E28" stroke="#22303C"/>
+    <text class="m dim" x="255.1" y="131" font-size="10.5" text-anchor="middle">uruguay</text></svg>

@@ -30,6 +30,28 @@ const SERVICES = [
   },
 ];
 
+// Other open-source sites I run — no ads, no login walls. Same live-probe treatment as SERVICES.
+const WEBSITES = [
+  {
+    url: "https://cambio-uruguay.com",
+    name: "Cambio Uruguay",
+    tagline: "Best FX rates & exchange houses in Uruguay",
+    tags: ["fx-rates", "uruguay", "finance"],
+  },
+  {
+    url: "https://conlatuya.checkleaked.cc",
+    name: "ConLaTuya",
+    tagline: "Gov spending monitor, tender alerts (UY)",
+    tags: ["gov-spending", "procurement", "uruguay"],
+  },
+  {
+    url: "https://warframe-app.digitalshopuy.com",
+    name: "Warframe Market App",
+    tagline: "Warframe market analysis, guides & tools",
+    tags: ["warframe", "market-data", "gaming"],
+  },
+];
+
 // Featured repos are the top-starred ones, picked at render time — no hand-maintained list.
 const FEATURED_COUNT = 4;
 
@@ -210,9 +232,14 @@ async function collect() {
     SERVICES.map(async (svc) => ({ ...svc, ...(await probe(svc.url)) })),
   );
 
+  const websites = await Promise.all(
+    WEBSITES.map(async (site) => ({ ...site, ...(await probe(site.url)) })),
+  );
+
   return {
     user,
     services,
+    websites,
     stats: {
       repos: own.length,
       stars,
@@ -458,7 +485,7 @@ function repoCard(t, repo) {
  * the script owns that block rather than leaving a hand-written link pointing at the
  * wrong card.
  */
-async function patchReadme({ featured, services }) {
+async function patchReadme({ featured, services, websites }) {
   const path = join(OUT, "..", "README.md");
   const md = await readFile(path, "utf8");
 
@@ -479,12 +506,17 @@ async function patchReadme({ featured, services }) {
     )
     .join("\n");
 
+  const websiteCards = websites
+    .map((site, i) => linked(site.url, `site-${i + 1}`, `${site.name} — ${site.tagline}`, 412))
+    .join("\n");
+
   const rx = (marker) => new RegExp(`(<!-- ${marker}:start -->)[\\s\\S]*?(<!-- ${marker}:end -->)`);
   const block = (src, marker, body) =>
     rx(marker).test(src) ? src.replace(rx(marker), `$1\n${body}\n$2`) : src;
 
   let next = block(md, "PROJECTS", `<p align="center">\n${repoCards}\n</p>`);
   next = block(next, "SERVICES", `<p align="center">\n${serviceCards}\n</p>`);
+  next = block(next, "WEBSITES", `<p align="center">\n${websiteCards}\n</p>`);
   next = next.replace(
     /(<!-- LAST_UPDATED -->)[\s\S]*?(<!-- \/LAST_UPDATED -->)/,
     `$1${new Date().toISOString().slice(0, 10)}$2`,
@@ -504,6 +536,7 @@ const cards = [
   ["stats", statsCard],
   ["langs", langsCard],
   ...data.services.map((svc, i) => [`service-${i + 1}`, (t) => serviceCard(t, svc)]),
+  ...data.websites.map((site, i) => [`site-${i + 1}`, (t) => serviceCard(t, site)]),
   ...data.featured.map((repo, i) => [`repo-${i + 1}`, (t) => repoCard(t, repo)]),
 ];
 
@@ -519,5 +552,6 @@ console.log(
   `${cards.length * 2} SVGs · ${data.stats.repos} repos · ${data.stats.stars} stars · ` +
     `${data.languages.length} languages (${TOKEN ? "byte-accurate" : "size-weighted"})\n` +
     `services: ${data.services.map((s) => `${s.name} [${s.status || "unreachable"} ${s.meta}]`).join(", ")}\n` +
+    `websites: ${data.websites.map((s) => `${s.name} [${s.status || "unreachable"} ${s.meta}]`).join(", ")}\n` +
     `featured: ${data.featured.map((r) => `${r.name} (${r.stargazers_count}★)`).join(", ")}`,
 );
