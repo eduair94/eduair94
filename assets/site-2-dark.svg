@@ -23,7 +23,7 @@
   
   <rect x="336" y="8" width="64" height="15" rx="7.5" fill="#12281D"/>
   <text class="m" x="368" y="19" font-size="10" font-weight="700" fill="#4FD68A" text-anchor="middle">200 OK</text>
-  <text class="m dim" x="326" y="20" font-size="10" text-anchor="end">1064ms</text>
+  <text class="m dim" x="326" y="20" font-size="10" text-anchor="end">875ms</text>
     <text class="m acc" x="20" y="60" font-size="17" font-weight="700">ConLaTuya</text>
     <circle class="pulse" cx="114.10000000000001" cy="55" r="4" fill="#4FD68A"/>
     <text class="m txt" x="20" y="84" font-size="12">Gov spending monitor, tender alerts (UY)</text>
