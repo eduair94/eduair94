@@ -23,7 +23,7 @@
   
   <rect x="336" y="8" width="64" height="15" rx="7.5" fill="#E4F4EA"/>
   <text class="m" x="368" y="19" font-size="10" font-weight="700" fill="#12703F" text-anchor="middle">200 OK</text>
-  <text class="m dim" x="326" y="20" font-size="10" text-anchor="end">272ms</text>
+  <text class="m dim" x="326" y="20" font-size="10" text-anchor="end">174ms</text>
     <text class="m acc" x="20" y="60" font-size="17" font-weight="700">Warframe Market App</text>
     <circle class="pulse" cx="203.1" cy="55" r="4" fill="#12703F"/>
     <text class="m txt" x="20" y="84" font-size="12">Warframe market analysis, guides &amp; tools</text>
