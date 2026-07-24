@@ -175,6 +175,6 @@ Open to consulting on scraping, automation and API work — or just a good bug r
     Cards above are rendered from the GitHub API by
     <a href="./scripts/render-cards.mjs"><code>scripts/render-cards.mjs</code></a>
     and committed to this repo — no third-party card service to go down.
-    Last updated: <!-- LAST_UPDATED -->2026-07-23<!-- /LAST_UPDATED -->
+    Last updated: <!-- LAST_UPDATED -->2026-07-24<!-- /LAST_UPDATED -->
   </sub>
 </p>
