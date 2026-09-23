@@ -78,7 +78,7 @@ I build the unglamorous middle of the internet: the scraper that survives the an
   <a href="https://github.com/eduair94/cambio-uruguay">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="./assets/repo-2-dark.svg" />
-      <img alt="cambio-uruguay — Source code of https://cambio-uruguay.com" src="./assets/repo-2-light.svg" width="412" />
+      <img alt="cambio-uruguay — cambio-uruguay.com: Uruguay exchange rates, rentals, used cars and prices. Public API, remote MCP server (29 tools, no key) and a Claude skill." src="./assets/repo-2-light.svg" width="412" />
     </picture>
   </a>
   <a href="https://github.com/eduair94/gastos-gub-uy">
@@ -175,6 +175,6 @@ Open to consulting on scraping, automation and API work — or just a good bug r
     Cards above are rendered from the GitHub API by
     <a href="./scripts/render-cards.mjs"><code>scripts/render-cards.mjs</code></a>
     and committed to this repo — no third-party card service to go down.
-    Last updated: <!-- LAST_UPDATED -->2026-09-22<!-- /LAST_UPDATED -->
+    Last updated: <!-- LAST_UPDATED -->2026-09-23<!-- /LAST_UPDATED -->
   </sub>
 </p>
