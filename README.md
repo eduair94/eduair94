@@ -81,16 +81,16 @@ I build the unglamorous middle of the internet: the scraper that survives the an
       <img alt="cambio-uruguay — cambio-uruguay.com: Uruguay exchange rates, rentals, used cars and prices. Public API, remote MCP server (29 tools, no key) and a Claude skill." src="./assets/repo-2-light.svg" width="412" />
     </picture>
   </a>
-  <a href="https://github.com/eduair94/gastos-gub-uy">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="./assets/repo-3-dark.svg" />
-      <img alt="gastos-gub-uy — Uruguayan public spending, scraped and queryable" src="./assets/repo-3-light.svg" width="412" />
-    </picture>
-  </a>
   <a href="https://github.com/eduair94/warframe">
     <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./assets/repo-3-dark.svg" />
+      <img alt="warframe — Free real-time Warframe Market analytics &amp; platinum trading tools — live prime prices, set-vs-parts, ducat/relic/riven value, vaulted tracking &amp; flip finder. Live: warframe-app.digitalshopuy.com" src="./assets/repo-3-light.svg" width="412" />
+    </picture>
+  </a>
+  <a href="https://github.com/eduair94/gastos-gub-uy">
+    <picture>
       <source media="(prefers-color-scheme: dark)" srcset="./assets/repo-4-dark.svg" />
-      <img alt="warframe — Free real-time Warframe Market analytics &amp; platinum trading tools — live prime prices, set-vs-parts, ducat/relic/riven value, vaulted tracking &amp; flip finder. Live: warframe-app.digitalshopuy.com" src="./assets/repo-4-light.svg" width="412" />
+      <img alt="gastos-gub-uy — Uruguayan public spending, scraped and queryable" src="./assets/repo-4-light.svg" width="412" />
     </picture>
   </a>
 </p>
@@ -175,6 +175,6 @@ Open to consulting on scraping, automation and API work — or just a good bug r
     Cards above are rendered from the GitHub API by
     <a href="./scripts/render-cards.mjs"><code>scripts/render-cards.mjs</code></a>
     and committed to this repo — no third-party card service to go down.
-    Last updated: <!-- LAST_UPDATED -->2026-10-22<!-- /LAST_UPDATED -->
+    Last updated: <!-- LAST_UPDATED -->2026-10-23<!-- /LAST_UPDATED -->
   </sub>
 </p>
