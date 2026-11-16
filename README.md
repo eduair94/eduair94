@@ -69,10 +69,10 @@ I build the unglamorous middle of the internet: the scraper that survives the an
 
 <!-- PROJECTS:start -->
 <p align="center">
-  <a href="https://github.com/eduair94/whatsapp-scrapping-tool">
+  <a href="https://github.com/eduair94/whatsapp-scraping-tool">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="./assets/repo-1-dark.svg" />
-      <img alt="whatsapp-scrapping-tool — Bulk WhatsApp number verification, as a desktop app" src="./assets/repo-1-light.svg" width="412" />
+      <img alt="whatsapp-scraping-tool — Free desktop app that checks which numbers of a CSV or Excel list are on WhatsApp, with name, about, profile picture and business profile. Export to Excel, CSV or JSON. Windows, macOS, Linux." src="./assets/repo-1-light.svg" width="412" />
     </picture>
   </a>
   <a href="https://github.com/eduair94/cambio-uruguay">
@@ -175,6 +175,6 @@ Open to consulting on scraping, automation and API work — or just a good bug r
     Cards above are rendered from the GitHub API by
     <a href="./scripts/render-cards.mjs"><code>scripts/render-cards.mjs</code></a>
     and committed to this repo — no third-party card service to go down.
-    Last updated: <!-- LAST_UPDATED -->2026-11-15<!-- /LAST_UPDATED -->
+    Last updated: <!-- LAST_UPDATED -->2026-11-16<!-- /LAST_UPDATED -->
   </sub>
 </p>
